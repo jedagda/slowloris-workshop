@@ -71,6 +71,7 @@ Vagrant.configure("2") do |config|
     /home/vagrant/setup/config.sh
     echo "Modifying hosts to access website via browser"
     echo "172.193.127.3   hecticgames.com" >> /etc/hosts
+    echo "172.193.127.2   dedsec.net" >> /etc/hosts
 
   SHELL
 
