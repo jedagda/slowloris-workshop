@@ -66,9 +66,10 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "file" , source: "./setup", destination: "$HOME/setup"
+  config.vm.provision "file" , source: "./docker-env", destination: "$HOME/docker"
   config.vm.provision "shell", inline: <<-SHELL
     /home/vagrant/setup/setup.sh
-    bash /home/vagrant/setup/config.sh
+    /home/vagrant/setup/config.sh
 
   SHELL
 
