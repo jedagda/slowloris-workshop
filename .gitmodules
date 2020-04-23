@@ -1,0 +1,3 @@
+[submodule "docker-env"]
+	path = docker-env
+	url = https://github.com/jedagda/slowloris-intel-workshop
