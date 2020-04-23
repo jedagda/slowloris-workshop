@@ -53,10 +53,10 @@ Vagrant.configure("2") do |config|
      # Display the VirtualBox GUI when booting the machine
      vb.gui = true
      vb.name = "Slowloris DoS Workshop"
-     vb.cpus = 2
+     vb.cpus = 1
      vb.customize ["modifyvm", :id, "--vram", "128"]  
      # Customize the amount of memory on the VM:
-     vb.memory = "2048"
+     vb.memory = "4048"
    end
   #
   # View the documentation for the provider you are using for more
@@ -65,10 +65,13 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "file" , source: "./setup", destination: "$HOME/setup"
+  config.vm.provision "file" , source: "./", destination: "$HOME/vagrant"
   config.vm.provision "shell", inline: <<-SHELL
     /home/vagrant/setup/setup.sh
-    bash /home/vagrant/setup/config.sh
+    /home/vagrant/setup/config.sh
+    echo "Modifying hosts to access website via browser"
+    echo "172.193.127.3   hecticgames.com" >> /etc/hosts
+    echo "172.193.127.2   dedsec.net" >> /etc/hosts
 
   SHELL
 
